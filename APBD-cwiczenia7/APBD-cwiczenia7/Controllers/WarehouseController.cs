@@ -32,8 +32,8 @@ namespace YourNamespace.Controllers
             }
         }
 
-        [HttpPost("add-product")]
-        public IActionResult AddProductToWarehouse([FromBody] AddProductRequest request)
+        [HttpPost]
+        public IActionResult AddProductToWarehouse([FromBody] Checks request)
         {
             try
             {
@@ -129,7 +129,7 @@ namespace YourNamespace.Controllers
             }
         }
 
-        private int InsertProductWarehouse(AddProductRequest request)
+        private int InsertProductWarehouse(Checks request)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -156,7 +156,7 @@ namespace YourNamespace.Controllers
         }
     }
 
-    public class AddProductRequest
+    public class Checks
     {
         public int IdWarehouse { get; set; }
         public int IdProduct { get; set; }
