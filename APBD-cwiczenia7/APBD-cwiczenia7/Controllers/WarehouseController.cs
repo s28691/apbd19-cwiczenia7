@@ -33,7 +33,7 @@ namespace YourNamespace.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddProductToWarehouse([FromBody] Checks request)
+        public IActionResult AddProductToWarehouse([FromBody] toAdd request)
         {
             try
             {
@@ -129,7 +129,7 @@ namespace YourNamespace.Controllers
             }
         }
 
-        private int InsertProductWarehouse(Checks request)
+        private int InsertProductWarehouse(toAdd request)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -156,7 +156,7 @@ namespace YourNamespace.Controllers
         }
     }
 
-    public class Checks
+    public class toAdd
     {
         public int IdWarehouse { get; set; }
         public int IdProduct { get; set; }
